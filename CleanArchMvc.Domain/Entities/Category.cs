@@ -9,8 +9,11 @@ namespace CleanArchMvc.Domain.Entities
 {
     public sealed class Category : Entity
     {
+        #region Properties
         public string Name { get; private set; }
+        #endregion
 
+        #region Constructors
         public Category(string name)
         {
             ValidateDomain(name);
@@ -22,10 +25,11 @@ namespace CleanArchMvc.Domain.Entities
             Id = id;
             ValidateDomain(name);
         }
+        #endregion
 
         public ICollection<Product> Products { get; set; }
 
-        private void ValidateDomain(string name) 
+        private void ValidateDomain(string name)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name),
                 "Invalid name. Name is required.");
@@ -36,5 +40,5 @@ namespace CleanArchMvc.Domain.Entities
         }
     }
 
-
 }
+
