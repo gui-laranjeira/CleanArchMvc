@@ -23,7 +23,7 @@ namespace CleanArchMvc.Domain.Tests
         }
 
         [Fact(DisplayName = "Create Category with short name")]
-        public void CreateCategory_ShortNameValue_DomainExceptionInvalidId()
+        public void CreateCategory_ShortNameValue_DomainExceptionInvalidName()
         {
             Action action = () => new Category(1, "Ca");
             action.Should()
@@ -33,7 +33,7 @@ namespace CleanArchMvc.Domain.Tests
 
 
         [Fact(DisplayName = "Create Category with no name")]
-        public void CreateCategory_NoNameValue_DomainExceptionInvalidId()
+        public void CreateCategory_NoNameValue_DomainExceptionInvalidName()
         {
             Action action = () => new Category(1, string.Empty);
             action.Should()
