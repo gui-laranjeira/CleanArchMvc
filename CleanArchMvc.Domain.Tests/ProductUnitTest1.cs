@@ -94,5 +94,21 @@ namespace CleanArchMvc.Domain.Tests
                 .Throw<Validation.DomainExceptionValidation>()
                 .WithMessage("Invalid image name. Image maximum length is 250 characters.");
         }
+
+        [Fact(DisplayName = "Create Product with null image value -> No domain exception")]
+        public void CreateProduct_NullImageValue_NoDomainException()
+        {
+            Action action = () => new Product(1, "Product name", "this is a product", 3.141592m, 10, null);
+            action.Should()
+                .NotThrow<Validation.DomainExceptionValidation>();
+        }
+
+        [Fact(DisplayName = "Create Product with null image value -> No null reference exception")]
+        public void CreateProduct_NullImageValue_NoNullReferenceException()
+        {
+            Action action = () => new Product(1, "Product name", "this is a product", 3.141592m, 10, null);
+            action.Should()
+                .NotThrow<NullReferenceException>();
+        }
     }
 }
