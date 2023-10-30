@@ -56,6 +56,17 @@ namespace CleanArchMvc.Infra.Data.Migrations
                     { 3, "Furniture" }
                 });
 
+            migrationBuilder.InsertData(
+            table: "Products",
+            columns: new[] { "Id", "Name", "Description","Price","Stock","Image","CategoryId" },
+            values: new object[,]
+            {
+                            { 1, "Gray Notebook", "Gray hard cover notebook 120 pages", 7.50, 80, "notebook.jpg", 1 },
+                            { 2, "Blue Pen", "BIC's new blue pen", 1.25, 1500, "bluepen.jpg", 1 },
+                            { 3, "Macbook Pro 16 M2", "Apple Macbook Pro 16 pols M2 32GB SSD 1TB", 6999.99, 20, "Macbook.jpg", 2 },
+                            { 4, "Red Couch", "Confortable three seater red couch", 875.50, 40, "redcouch.jpg", 3 },
+            });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
